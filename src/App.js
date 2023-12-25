@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import './App.css';
-// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextFrom from './components/TextFrom';
 import Alert from './components/Alert';
 import React from "react";
 
 
-function App() {
+function App(props) {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState('null');
+
+
 
   const showAlert = (message, type) => {
     setAlert({
@@ -28,14 +29,14 @@ function App() {
     }
     else {
       setMode('light');
-      document.body.style.backgroundColor = 'white'
-      showAlert("Light mode has been enabled", "success")
+      document.body.style.backgroundColor = 'white';
+      showAlert("Light mode has been enabled", "success");
     }
   }
 
   return (
     <>
-    <Navbar title="TextUtils - Word and Character Counter" mode={mode} toggleMode={toggleMode}/>
+    <Navbar title="TextUtils - Word and Character Counter" mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert} />
     <div className='container my-3'>
 
